@@ -936,11 +936,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Pizza\\Pizza\\Pizza.csproj",
+      "projectUniqueName": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Example\\Pizza\\Pizza\\Pizza.csproj",
       "projectName": "Pizza",
-      "projectPath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Pizza\\Pizza\\Pizza.csproj",
+      "projectPath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Example\\Pizza\\Pizza\\Pizza.csproj",
       "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Pizza\\Pizza\\obj\\",
+      "outputPath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Example\\Pizza\\Pizza\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",

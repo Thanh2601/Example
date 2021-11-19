@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gjL75XoQE20JyBfKNOe1Lkijx6XOYP7ifpl4oFySUJpXYV77gePa6G1T1ssEloFwYcqWmgXCN2SdiLSlNIlJjg==",
+  "dgSpecHash": "Llt/85ur6/pVfnJw3mqzDkFW+pVCbPqRf/NB8jahQ5M+qhfMtQ0/Izp4rnmwqGDSDuh/T0zPWihx8EgkAirsjw==",
   "success": true,
-  "projectFilePath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Pizza\\Pizza\\Pizza.csproj",
+  "projectFilePath": "C:\\Thanh\\Work\\Week1\\Wednesday\\DemoPizza\\Example\\Pizza\\Pizza\\Pizza.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thanh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

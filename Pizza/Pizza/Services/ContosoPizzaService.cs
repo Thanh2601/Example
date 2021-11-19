@@ -8,7 +8,7 @@ namespace ContosoPizza.Services
 {
     public class PizzaService
     {
-        static List<ContosoPizza.Models.Pizza> Pizzas { get; }
+        static List<ContosoPizza.Models.Pizza> Pizzas { get; set; }
         static int nextId = 3;
         static PizzaService()
         {

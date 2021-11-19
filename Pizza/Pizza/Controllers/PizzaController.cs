@@ -12,7 +12,7 @@ namespace ContosoPizza.Controllers
 {
     public class PizzaController : Controller
     {
-
+       // [Route("api/[controller]")]
         [HttpGet]
         // GET: PizzaController
         public ActionResult<List<ContosoPizza.Models.Pizza>> GetAll() => PizzaService.GetAll();
@@ -30,56 +30,93 @@ namespace ContosoPizza.Controllers
 
 
         // POST: PizzaController/Create
-        [HttpPost("id")]
-        [ValidateAntiForgeryToken]
-        public ActionResult<ContosoPizza.Models.Pizza> Create(ContosoPizza.Models.Pizza pizza)
+        [HttpPost("addpizza")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<ContosoPizza.Models.Pizza> Create(string Name, bool IsGlutenFree)
         {
+            ContosoPizza.Models.Pizza pizza = new ContosoPizza.Models.Pizza();
+
+            pizza.Name = Name;
+            pizza.IsGlutenFree = IsGlutenFree;
             PizzaService.Add(pizza);
 
             return pizza;
-    
-        }
 
-        // GET: PizzaController/Edit/5
-        public ActionResult Edit(int id)
+
+            //PizzaService.Add(pizza);
+
+            //return pizza;
+            //Console.WriteLine(name, a);
+            //return false;
+        }
+        [HttpPut("updatepizza")]
+        public ActionResult<string> Update(int UpdateID, string Name, bool IsGlutenFree)
         {
-            return View();
+            ContosoPizza.Models.Pizza pizza = new ContosoPizza.Models.Pizza();
+
+            pizza.Name = Name;
+            pizza.IsGlutenFree = IsGlutenFree;
+
+            if (PizzaService.Get(UpdateID) == null)
+            {
+                return "Cannot update because of invalid value";
+            }
+            else
+            {
+                pizza.Id = UpdateID;
+                PizzaService.Update(pizza);
+                return "Update successful!";
+            }    
         }
 
-        // POST: PizzaController/Edit/5
+        [HttpDelete("deletepizza")]
+        public ActionResult<string> Delete(int DeleteID)
+        {
+
+            if (PizzaService.Get(DeleteID) == null)
+            {
+                return "Cannot delete because of invalid value";
+            }
+            else
+            {
+                PizzaService.Delete(DeleteID);
+                return "Delete successful!";
+            }
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public IActionResult Create(ContosoPizza.Models.Pizza pizza)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            PizzaService.Add(pizza);
+            return CreatedAtAction(nameof(Create), new { id = pizza.Id }, pizza);
         }
 
-        // GET: PizzaController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, ContosoPizza.Models.Pizza pizza)
         {
-            return View();
+            if (id != pizza.Id)
+                return BadRequest();
+
+            var existingPizza = PizzaService.Get(id);
+            if (existingPizza is null)
+                return NotFound();
+
+            PizzaService.Update(pizza);
+
+            return NoContent();
         }
 
-        // POST: PizzaController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        public IActionResult Delete1(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var pizza = PizzaService.Get(id);
+
+            if (pizza is null)
+                return NotFound();
+
+            PizzaService.Delete(id);
+
+            return NoContent();
         }
     }
 }
